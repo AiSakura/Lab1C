@@ -1,0 +1,31 @@
+/*1.2 (14). Натуральное число называется совершенным, если оно равно сумме всех своих делителей, меньших, чем оно само.
+(например, 6 = 1 + 2 + 3)
+Найти все совершенные числа, не превосходящие заданного n. */
+
+#include <stdio.h> 
+
+int main() {
+	
+	int n, num = 1, denom = 1;
+	printf("You need to find all perfect numbers that do not exceed the numbers n, enter n: ");
+		if (!scanf_s("%d",&n)) { //проверка на ввод
+			printf("error\n");
+		}
+		else {
+			printf("\n");
+		}
+		for (num = 1; num < n; num++)
+		{
+			int sum = 0;  // сумма делителей
+			for (denom = 1; denom < num; denom++)
+			{
+				if (num % denom == 0)  //если число-num делиться на den, где den - denominator - это делитель числа num, то
+					sum += denom; // считать сумму делителей
+			}
+			if (num == sum) {
+				printf("Perfect number(s): %d\n", num);
+			}
+
+		}
+	return 0;
+}
